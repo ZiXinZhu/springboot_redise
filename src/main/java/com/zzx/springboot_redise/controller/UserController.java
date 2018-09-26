@@ -22,4 +22,8 @@ public class UserController {
     public String getUser(String k){
         return server.getUser(k);
     }
+    @RequestMapping("/del")
+    public void del(String k){
+        server.del(k);
+    }
 }

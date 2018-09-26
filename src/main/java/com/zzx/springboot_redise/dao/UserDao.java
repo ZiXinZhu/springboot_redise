@@ -12,12 +12,15 @@ public class UserDao {
     @Autowired
     RedisTemplate<Object, Object> template;
     public String setUser(String k,String v) {
-        template.opsForValue().set(k, v);
-        String val= (String) template.opsForValue().get(k);
-        if(val.equals(v)){
-            return val;
+        if(template.opsForValue().get(k)==null){
+            template.opsForValue().set(k, v);
+            String val= (String) template.opsForValue().get(k);
+            if(val.equals(v)){
+                return val;
+            }
+            return "失败";
         }
-        return "失败";
+        return "失败！key已经存在！";
     }
 
     public String getUser(String k){
@@ -27,5 +30,11 @@ public class UserDao {
         }
         return "失败";
     }
+
+    public void del(String key){
+
+        template.delete(key);
+    }
+
 
 }
