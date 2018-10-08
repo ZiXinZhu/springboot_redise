@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 public class UserDao {
     @Autowired
     RedisTemplate<Object, Object> template;
+
     public String setUser(String k,String v) {
         if(template.opsForValue().get(k)==null){
             template.opsForValue().set(k, v);

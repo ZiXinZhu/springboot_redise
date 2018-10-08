@@ -21,7 +21,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @Configuration
 public class RedisTemplateCfg {
 
-    //Spring项目中可能会出现bean选择
+    //  Spring项目中可能会出现bean选择
     //  @Qualifier("redisCF")
     @Bean
     public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory connectionFactory) {
