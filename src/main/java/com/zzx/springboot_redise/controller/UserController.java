@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 /**
  * Created by Mr.John on 2018/9/26 10:07.
  **/
@@ -15,7 +17,7 @@ public class UserController {
     UserServer server;
 
     @RequestMapping("/set")
-    public String setUser(String k,String v){
+    public String setUser(String k,String v) throws IOException {
        return server.setUser(k, v);
     }
     @RequestMapping("/get")

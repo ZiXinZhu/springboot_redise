@@ -3,13 +3,15 @@ package com.zzx.springboot_redise.entity;
 import lombok.Data;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 /**
  * Created by Mr.John on 2018/9/23 16:52.
  **/
 
 @Data
 @ToString
-public class UserEntity {
+public class UserEntity implements Serializable {
 
     private  int id;
     private String  name;

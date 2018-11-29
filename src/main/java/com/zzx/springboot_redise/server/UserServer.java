@@ -7,6 +7,8 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+
 /**
  * Created by Mr.John on 2018/9/26 10:03.
  **/
@@ -19,7 +21,7 @@ public class UserServer {
 
     //不能插入重复key
     @CachePut(value = "redisT")
-    public String setUser(String k, String v) {
+    public String setUser(String k, String v) throws IOException {
       return userDao.setUser(k, v);
     }
 
