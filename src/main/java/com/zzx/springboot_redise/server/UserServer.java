@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserServer {
+
     @Autowired
     UserDao userDao;
 
@@ -26,6 +27,7 @@ public class UserServer {
     public String getUser(String k){
         return userDao.getUser(k);
     }
+
     //清空缓存
     @CacheEvict(value = "redisT",allEntries = true)
     public void del(String k){
