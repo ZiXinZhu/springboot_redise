@@ -1,6 +1,7 @@
 package com.zzx.springboot_redise.dao;
 
 import com.zzx.springboot_redise.entity.UserEntity;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,7 @@ import java.io.ObjectOutputStream;
  * Created by Mr.John on 2018/9/26 9:56.
  **/
 @Component
+@Slf4j
 public class UserDao {
     @Autowired
     RedisTemplate<Object, Object> template;
@@ -40,6 +42,7 @@ public class UserDao {
     }
 
     public String getUser(String k){
+        log.info("从数据库获取数据");
         String aa= (String) template.opsForValue().get(k);
         if(aa!=null){
             return aa;
