@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.util.SerializationUtils;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -31,7 +32,8 @@ public class UserDao {
                 userEntity.setPassword(v);
                 FileOutputStream fileOutputStream=new FileOutputStream("E:\\MyProjects\\springboot_redise\\src\\main\\resources\\templates\\test.txt");
                 ObjectOutputStream objectOutputStream=new ObjectOutputStream(fileOutputStream);
-                objectOutputStream.writeObject(userEntity);
+                objectOutputStream.writeObject(SerializationUtils.serialize(k));
+                objectOutputStream.writeObject(SerializationUtils.serialize(v));
                 objectOutputStream.flush();
                 objectOutputStream.close();
                 return val;

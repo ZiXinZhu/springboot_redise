@@ -29,7 +29,6 @@ public class RedisTest {
         RedisConnection conn = factory.getConnection();
         conn.set("hello".getBytes(), "world".getBytes());
         System.out.println(new String(conn.get("hello".getBytes())));
-
         //template测试
         template.opsForValue().set("keys","values");
         System.out.println(template.opsForValue().get("keys"));
